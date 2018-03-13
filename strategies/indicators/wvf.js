@@ -42,6 +42,7 @@ Indicator.prototype.calculate = function() {
 
     if(this.wvfHistory.length < this.bbl)
         return;         // Not enough data to do analysis
+    while (this.wvfHistory.length > this.bbl) this.wvfHistory.pop();
 
     // Bottoms
     const averagewvf = average(this.wvfHistory.slice(0, this.bbl))
